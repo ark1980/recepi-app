@@ -2,12 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
+.App-nav {
   background-color: rgb(15, 69, 112);
   height: 50px;
   padding: 5px 20px;
@@ -17,7 +12,11 @@
   align-items: center;
 }
 
-
-.App-intro {
-  font-size: large;
+.RecipeList {
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px auto;
+  text-align: center;
 }
