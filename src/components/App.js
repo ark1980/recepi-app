@@ -3,6 +3,7 @@ import './style.css';
 import Navbar from './Navbar';
 import RecipeList from './RecipeList';
 import recipes from '../DummyData';
+import Form from './Form';
 
 class App extends Component {
   constructor() {
@@ -32,14 +33,30 @@ class App extends Component {
           img: "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2015/12/11/0/FNK_All-the-Avocado-Toast_s4x3.jpg.rend.hgtvcom.616.462.suffix/1450059496131.jpeg"
         }
       ],
-      nextId: 3
+      nextId: 3,
+      showForm: false
     }
+
+    this.handleSaveForm = this.handleSaveForm.bind(this);
+
+  }
+
+  handleSaveForm(recipe) {
+    this.setState((prevState, props) => {
+      const newState = {...recipe, id: this.state.nextId};
+      return {
+        nextId: prevState.nextId + 1,
+        recipes: [...recipes, newState],
+        showForm: false
+      }
+    })
   }
 
   render() {
     return (
       <div className="App">
         <Navbar />
+        <Form onSave={this.handleSaveForm}/>
         <RecipeList recipesList={this.state.recipes}/>
       </div>
     );
